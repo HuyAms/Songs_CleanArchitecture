@@ -1,4 +1,4 @@
-package com.example.huytrinh.songs.domain.domain.user
+package com.example.huytrinh.domain.user
 
 import com.example.huytrinh.songs.domain.repository.UserRepository
 import com.example.huytrinh.songs.domain.usecase.user.GetLoginStateUseCase

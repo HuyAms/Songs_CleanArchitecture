@@ -1,4 +1,4 @@
-package com.example.huytrinh.songs.domain.domain
+package com.example.huytrinh.domain
 
 import com.example.huytrinh.songs.domain.entity.Album
 

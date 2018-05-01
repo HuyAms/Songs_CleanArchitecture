@@ -1,6 +1,6 @@
-package com.example.huytrinh.songs.domain.domain.album
+package com.example.huytrinh.domain.album
 
-import com.example.huytrinh.songs.domain.domain.TESTING_ALBUMS
+import com.example.huytrinh.domain.TESTING_ALBUMS
 import com.example.huytrinh.songs.domain.entity.Album
 import com.example.huytrinh.songs.domain.repository.AlbumRepository
 import com.example.huytrinh.songs.domain.usecase.album.LoadAlbumsUseCase

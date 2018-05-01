@@ -29,7 +29,6 @@ dependencies {
     implementation "com.android.support:appcompat-v7:$rootProject.supportVersion"
     implementation "com.android.support.constraint:constraint-layout:$rootProject.constraintLayoutVersion"
 
-
     // Glide
     implementation "com.github.bumptech.glide:glide:$rootProject.glideVersion"
 
@@ -44,8 +43,8 @@ dependencies {
     testImplementation "org.hamcrest:hamcrest-all:$rootProject.hamcrestVersion"
 
     //Networking
-    api "com.squareup.retrofit2:retrofit:$rootProject.retrofitVersion"
-    api "com.squareup.retrofit2:converter-gson:$rootProject.retrofitVersion"
-    api "com.squareup.retrofit2:adapter-rxjava2:$rootProject.retrofitVersion"
-    api "com.squareup.okhttp3:logging-interceptor:$rootProject.okhttpVersion"
+    implementation "com.squareup.retrofit2:retrofit:$rootProject.retrofitVersion"
+    implementation "com.squareup.retrofit2:converter-gson:$rootProject.retrofitVersion"
+    implementation "com.squareup.retrofit2:adapter-rxjava2:$rootProject.retrofitVersion"
+    implementation "com.squareup.okhttp3:logging-interceptor:$rootProject.okhttpVersion"
 }
