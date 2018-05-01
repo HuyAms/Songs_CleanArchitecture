@@ -40,6 +40,7 @@ dependencies {
     // Local Unit Test
     testImplementation "junit:junit:$rootProject.junitVersion"
     testImplementation "org.mockito:mockito-core:$rootProject.mockitoVersion"
+    testImplementation "com.nhaarman:mockito-kotlin:$rootProject.mockitoKotlinVersion"
     testImplementation "org.hamcrest:hamcrest-all:$rootProject.hamcrestVersion"
 
     //Networking
