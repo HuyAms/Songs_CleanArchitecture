@@ -7,6 +7,8 @@ interface UserRepository {
 
     fun logIn(username: String, password: String): Completable
 
+    fun setLoginState(): Completable
+
     fun getLoginState(): Single<Boolean>
 
     fun clearLoginData(): Completable
