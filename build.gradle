@@ -36,9 +36,9 @@ ext {
     // Dependencies
     supportVersion = '27.1.0'
     constraintLayoutVersion = '1.0.2'
+    anko_version = '0.10.5'
     retrofitVersion = '2.3.0'
     okhttpVersion = '3.8.0'
-    daggerVersion = '2.11'
     rxJavaVersion = '2.1.4'
     rxAndroidVersion = '2.0.1'
     glideVersion = '4.3.1'

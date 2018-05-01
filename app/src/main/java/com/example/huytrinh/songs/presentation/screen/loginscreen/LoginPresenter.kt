@@ -13,6 +13,11 @@ class LoginPresenter(private val view: LoginContract.View,
     private val compositeDisposable = CompositeDisposable()
 
     override fun performLogin(username: String, password: String) {
+
+        if (username.isNullOrEmpty() || password.isNullOrEmpty()) {
+            view.onShowLoginError("Field should not be empty")
+        }
+
         view.showLoading()
         val disposable = loginUseCase.execute(username, password)
                 .subscribeOn(schedulerProvider.ioScheduler)
