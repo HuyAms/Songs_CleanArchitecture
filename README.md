@@ -11,12 +11,9 @@
 ## Features
 :white_check_mark: Kotlin <br/>
 :white_check_mark: Clean architecture <br/>
-:white_check_mark: Test covered with `JUnit` and `Kotlin Mockito`. (domain and data layers) <br/>
+:white_check_mark: Test covered with `JUnit` and `Kotlin Mockito`. (domain, data and presentation layers) <br/>
 :white_check_mark: Observer Pattern <br/>
 :white_check_mark: Retrofit <br/>
-
-## TODO list:
-:white_large_square: Test presentation layer <br/>
 
 | Login     | Songs   | 
 | :-------------: | :-------------: | 
