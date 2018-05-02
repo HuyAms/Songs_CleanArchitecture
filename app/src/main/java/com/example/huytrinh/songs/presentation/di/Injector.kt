@@ -12,7 +12,7 @@ import com.example.huytrinh.songs.domain.usecase.user.ClearLoginDataUseCase
 import com.example.huytrinh.songs.domain.usecase.user.GetLoginStateUseCase
 import com.example.huytrinh.songs.domain.usecase.user.LoginUseCase
 import com.example.huytrinh.songs.domain.usecase.user.SetLoginStateUseCase
-import com.example.huytrinh.songs.presentation.util.SchedulerProvider
+import com.example.huytrinh.songs.presentation.util.SchedulerProviderImpl
 
 class Injector {
 
@@ -22,7 +22,7 @@ class Injector {
         lateinit var getLoginStateUseCase: GetLoginStateUseCase
         lateinit var loginUseCase: LoginUseCase
         lateinit var setLoginUseCase: SetLoginStateUseCase
-        lateinit var schedulerProvider: SchedulerProvider
+        lateinit var schedulerProvider: SchedulerProviderImpl
 
         fun initialize(app: Application) {
             val albumService = ServiceGenerator.provideAlbumService()
@@ -39,7 +39,7 @@ class Injector {
             loginUseCase = LoginUseCase(userRepository)
             setLoginUseCase = SetLoginStateUseCase(userRepository)
 
-            schedulerProvider = SchedulerProvider()
+            schedulerProvider = SchedulerProviderImpl()
         }
     }
 }

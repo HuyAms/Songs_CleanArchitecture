@@ -15,8 +15,8 @@ class AlbumPresenter(private val view: AlbumContract.View,
     override fun loadAlbums() {
         view.showLoading()
         val disposable = loadAlbumsUseCase.execute()
-                .subscribeOn(schedulerProvider.ioScheduler)
-                .observeOn(schedulerProvider.uiScheduler)
+                .subscribeOn(schedulerProvider.getIOScheduler())
+                .observeOn(schedulerProvider.getUIScheduler())
                 .subscribe({albumList ->
                     view.hideLoading()
                     view.onLoadAlbumSuccess(albumList)
@@ -30,8 +30,8 @@ class AlbumPresenter(private val view: AlbumContract.View,
     override fun performLogOut() {
         view.showLoading()
         val disposable = clearLoginDataUseCase.execute()
-                .subscribeOn(schedulerProvider.ioScheduler)
-                .observeOn(schedulerProvider.uiScheduler)
+                .subscribeOn(schedulerProvider.getIOScheduler())
+                .observeOn(schedulerProvider.getUIScheduler())
                 .subscribe({
                     view.hideLoading()
                     view.onLogOutSuccess()
@@ -39,6 +39,7 @@ class AlbumPresenter(private val view: AlbumContract.View,
                     view.hideLoading()
                     view.onError(error.localizedMessage)
                 })
+        compositeDisposable.add(disposable)
     }
 
     override fun attach() {

@@ -19,8 +19,8 @@ class LoginPresenter(private val view: LoginContract.View,
         } else {
             view.showLoading()
             val disposable = loginUseCase.execute(username, password)
-                    .subscribeOn(schedulerProvider.ioScheduler)
-                    .observeOn(schedulerProvider.uiScheduler)
+                    .subscribeOn(schedulerProvider.getIOScheduler())
+                    .observeOn(schedulerProvider.getUIScheduler())
                     .andThen(setLoginStateUseCase.execute())
                     .subscribe({
                         view.hideLoading()

@@ -12,9 +12,12 @@ import com.example.huytrinh.songs.presentation.screen.loginscreen.LoginActivity
 import com.example.huytrinh.songs.presentation.util.hide
 import com.example.huytrinh.songs.presentation.util.show
 import kotlinx.android.synthetic.main.activity_album.*
-import org.jetbrains.anko.*
+import org.jetbrains.anko.clearTask
+import org.jetbrains.anko.intentFor
+import org.jetbrains.anko.newTask
+import org.jetbrains.anko.toast
 
-class AlbumActivity : BaseActivity(), AlbumContract.View, AnkoLogger {
+class AlbumActivity : BaseActivity(), AlbumContract.View {
 
     private lateinit var presenter: AlbumContract.Presenter
     private lateinit var adapter: AlbumAdapter
@@ -76,16 +79,14 @@ class AlbumActivity : BaseActivity(), AlbumContract.View, AnkoLogger {
     }
 
     override fun onError(error: String) {
-        info { "onError: ${error}" }
+        toast(error)
     }
 
     override fun onLoadAlbumSuccess(albums: List<Album>) {
-        info { "onLoadAlbumSuccess: ${albums}" }
         adapter.replaceData(albums)
     }
 
     override fun onLogOutSuccess() {
-        info { "onLogOutSuccess" }
-
+        startActivity(intentFor<LoginActivity>().clearTask().newTask())
     }
 }

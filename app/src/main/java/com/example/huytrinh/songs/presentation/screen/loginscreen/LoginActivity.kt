@@ -8,10 +8,13 @@ import com.example.huytrinh.songs.presentation.screen.albumscreen.AlbumActivity
 import com.example.huytrinh.songs.presentation.util.hide
 import com.example.huytrinh.songs.presentation.util.show
 import kotlinx.android.synthetic.main.activity_login.*
-import org.jetbrains.anko.*
+import org.jetbrains.anko.clearTask
+import org.jetbrains.anko.intentFor
+import org.jetbrains.anko.newTask
 import org.jetbrains.anko.sdk25.coroutines.onClick
+import org.jetbrains.anko.toast
 
-class LoginActivity : BaseActivity(), LoginContract.View, AnkoLogger {
+class LoginActivity : BaseActivity(), LoginContract.View {
 
     private lateinit var presenter: LoginContract.Presenter
 
@@ -55,11 +58,10 @@ class LoginActivity : BaseActivity(), LoginContract.View, AnkoLogger {
     }
 
     override fun onShowLoginError(error: String) {
-        info { "onShowLoginError: ${error}" }
+        toast(error)
     }
 
     override fun onLoginSuccess() {
-        info { "login success" }
         startActivity(intentFor<AlbumActivity>().clearTask().newTask())
     }
 }

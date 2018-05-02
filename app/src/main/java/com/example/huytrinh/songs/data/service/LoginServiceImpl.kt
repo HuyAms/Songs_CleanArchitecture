@@ -11,7 +11,7 @@ class LoginServiceImpl: LoginService {
         if (userName.equals(testUserName) && password.equals(testPassword)) {
             return Completable.complete()
         } else {
-            return Completable.error(Error("Fail to login"))
+            return Completable.error(Error("username or password is not correct!"))
         }
     }
 }
