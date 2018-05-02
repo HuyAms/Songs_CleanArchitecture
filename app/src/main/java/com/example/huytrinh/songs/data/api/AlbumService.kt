@@ -6,7 +6,7 @@ import retrofit2.http.GET
 
 interface AlbumService {
 
-    @GET("albums")
+    @GET("api/songs")
     fun loadAlbums(): Single<List<ApiAlbumModel>>
 
 }

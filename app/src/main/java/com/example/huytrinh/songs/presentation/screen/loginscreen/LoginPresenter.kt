@@ -16,21 +16,21 @@ class LoginPresenter(private val view: LoginContract.View,
 
         if (username.isNullOrEmpty() || password.isNullOrEmpty()) {
             view.onShowLoginError("Field should not be empty")
+        } else {
+            view.showLoading()
+            val disposable = loginUseCase.execute(username, password)
+                    .subscribeOn(schedulerProvider.ioScheduler)
+                    .observeOn(schedulerProvider.uiScheduler)
+                    .andThen(setLoginStateUseCase.execute())
+                    .subscribe({
+                        view.hideLoading()
+                        view.onLoginSuccess()
+                    }, {error ->
+                        view.hideLoading()
+                        view.onShowLoginError(error.localizedMessage)
+                    })
+            compositeDisposable.add(disposable)
         }
-
-        view.showLoading()
-        val disposable = loginUseCase.execute(username, password)
-                .subscribeOn(schedulerProvider.ioScheduler)
-                .observeOn(schedulerProvider.uiScheduler)
-                .andThen(setLoginStateUseCase.execute())
-                .subscribe({
-                    view.hideLoading()
-                    view.onLoginSuccess()
-                }, {error ->
-                    view.hideLoading()
-                    view.onShowLoginError(error.localizedMessage)
-                })
-        compositeDisposable.add(disposable)
     }
 
     override fun attach() {
